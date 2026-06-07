@@ -3,6 +3,7 @@ import Image from "next/image";
 import { usePathname } from "next/navigation";
 import Link from "next/link";
 import { motion, AnimatePresence } from "framer-motion";
+import { authService } from "../api/authService";
 import {
   Sparkles,
   Wand2,
@@ -200,20 +201,45 @@ return (
   </motion.li>
 ); 
 }
-
+import { useEffect, useState } from "react";
 // ── Main Sidebar Component ────────────────────────────
 export default function Sidebar({ isOpen, onClose }: SidebarProps) {
   const pathname = usePathname();
-
+   const [user, setUser] = useState(null);
+const [loading, setLoading] = useState(true);
+const creditsUsed = user?.usage?.humanizer ?? 0;
+const creditsTotal = user?.limits?.humanizer ?? 0;
+const userPlan = user?.subscription?.status ?? "free";
+const isPro = user?.is_pro ?? false;
   // Calculate daily usage percentage
-  const creditsUsed = 350;
-  const creditsTotal = 500;
-  const creditPercentage = (creditsUsed / creditsTotal) * 100;
-  const isNearLimit = creditPercentage > 75;
+  // const creditsUsed = 350;
+  // const creditsTotal = 500;
+const creditPercentage =
+  creditsTotal > 0 ? (creditsUsed / creditsTotal) * 100 : 0;
+
+const isNearLimit = creditPercentage > 75;
+ 
+
+useEffect(() => {
+  const fetchMe = async () => {
+    try {
+      const res = await authService.getMe();
+      setUser(res);
+    } catch (err) {
+      console.error("Failed to fetch user:", err);
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  fetchMe();
+}, []);
+
+
 
   // Get plan upgrade info
-  const userPlan = "Free Plan";
-  const isPro = userPlan.includes("Pro");
+  // const userPlan = "Free Plan";
+  // const isPro = userPlan.includes("Pro");
 
   return (
     <>
@@ -408,14 +434,18 @@ export default function Sidebar({ isOpen, onClose }: SidebarProps) {
             className="flex items-center gap-3 p-3 rounded-xl hover:bg-white/5 cursor-pointer transition group"
           >
             <div className="w-10 h-10 rounded-full bg-gradient-to-br from-purple-500 to-pink-500 flex items-center justify-center text-sm font-bold flex-shrink-0 group-hover:shadow-lg group-hover:shadow-purple-500/30 transition-shadow">
-              AK
+              {/* AK */}
+                {user?.first_name?.[0]}{user?.last_name?.[0]}
             </div>
             <div className="flex-1 min-w-0">
               <p className="text-sm font-medium truncate group-hover:text-purple-300 transition">
-                Ahmed Khan
+                {/* Ahmed Khan */}
+                  {user?.first_name} {user?.last_name}
+                
               </p>
               <p className={`text-xs truncate ${isPro ? "text-green-400" : "text-gray-400"}`}>
-                {userPlan}
+                {/* {userPlan} */}
+                  {isPro ? "Pro Plan" : "Free Plan"}
               </p>
             </div>
           </Link>
