@@ -1,6 +1,6 @@
 {
-    "name": "My awesome PWA app",
-    "short_name": "PWA App",
+    "name": "Ravionix",
+    "short_name": "Ravionix",
     "icons": [{
             "src": "/icons/icon-192.png",
             "sizes": "192x192",
