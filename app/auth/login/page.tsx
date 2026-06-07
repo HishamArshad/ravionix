@@ -28,7 +28,7 @@ export default function LoginPage() {
   const userData = useObservable(null)
   const googleLogin = () => {
   const clientId = process.env.NEXT_PUBLIC_GOOGLE_CLIENT_ID
-  const redirectUri = "https://ravionix.vercel.app/api/accounts/google/callback/"
+  const redirectUri = "https://7cfb-202-66-180-220.ngrok-free.app/api/accounts/google/callback/"
 
   const scope = "openid email profile"
 
