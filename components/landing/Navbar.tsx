@@ -119,6 +119,8 @@ const USER_MENU_ITEMS = [
 ];
 
 function MegaMenuDropdown() {
+
+
   return (
     <motion.div
       initial={{ opacity: 0, y: 12 }}
@@ -387,15 +389,29 @@ export default observer(function Navbar() {
     document.addEventListener("mousedown", handleClickOutside);
     return () => document.removeEventListener("mousedown", handleClickOutside);
   }, []);
+  const [isMobile, setIsMobile] = useState(false);
 
+useEffect(() => {
+  const check = () => setIsMobile(window.innerWidth < 1024);
+  check();
+  window.addEventListener("resize", check);
+  return () => window.removeEventListener("resize", check);
+}, []);
   return (
     <nav
       data-navbar
+      // className={`fixed top-0 w-full z-40 transition-all duration-300 ${
+      //   scrolled
+      //     ? "bg-[#0a0a0f]/80 backdrop-blur-lg border-b border-white/10"
+      //     : "bg-transparent"
+      // }`}
       className={`fixed top-0 w-full z-40 transition-all duration-300 ${
-        scrolled
-          ? "bg-[#0a0a0f]/80 backdrop-blur-lg border-b border-white/10"
-          : "bg-transparent"
-      }`}
+  isMobile
+    ? "bg-[#0a0a0f]/80 backdrop-blur-lg border-b border-white/10"
+    : scrolled
+      ? "bg-[#0a0a0f]/80 backdrop-blur-lg border-b border-white/10"
+      : "bg-transparent"
+}`}
     >
       <div className="max-w-7xl mx-auto px-6 py-4">
         <div className="flex items-center justify-between">
