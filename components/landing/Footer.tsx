@@ -13,7 +13,7 @@ import {
   Send,
   ArrowUpRight,
 } from "lucide-react";
-import InstallButton from "../ui/InstallButton";
+// import InstallButton from "../ui/InstallButton";
 
 const FOOTER_LINKS = {
   product: [
@@ -217,7 +217,7 @@ export default function Footer() {
 
           </div>
         </motion.div>
-<InstallButton />
+{/* <InstallButton /> */}
         {/* ── Status Bar ── */}
         <motion.div
           initial={{ opacity: 0 }}
