@@ -1,0 +1,147 @@
+{
+    "id": 28,
+    "humanized_text": "Artificial intelligence is transforming many aspects of modern life, influencing how people work, learn, communicate, and solve problems. Over the past decade, AI has become increasingly integrated into our daily routines. However, important considerations will remain essential as we move forward. By using AI responsibly and thoughtfully, society can harness its potential to improve productivity, address complex challenges, and create new opportunities for growth and development across various sectors.",
+    "scores": {
+        "naturalness": 28,
+        "clarity": 27,
+        "style_match": 32,
+        "total": 87
+    },
+    "breakdown": {
+        "strengths": [
+            "Restored logical flow by adding transitional phrase 'AI has become increasingly integrated into our daily routines'",
+            "Fixed the broken sentence structure that interrupted the narrative",
+            "Maintained all original meaning and information",
+            "Improved readability without altering the core message"
+        ],
+        "weaknesses": [
+            "The phrase 'important considerations will remain essential' is still somewhat vague",
+            "Could specify which considerations are being referenced",
+            "The opening and closing could be more tightly integrated"
+        ],
+        "feedback": "The original text had a significant structural break ('decadeconsiderations') that disrupted flow. The rewrite restores coherence by inserting a logical transition. The text now reads naturally while preserving all intended meaning. The vagueness about 'considerations' remains from the source material."
+    },
+    "processing_time": 4.006433010101318
+}
+
+{
+    "id": 5,
+    "email": "hishamarshad49@gmail.com",
+    "first_name": "Hisham",
+    "last_name": "Arshad",
+    "phone": "",
+    "bio": "",
+    "profile_picture": null,
+    "profile_picture_url": null,
+    "university": "",
+    "department": "",
+    "semester": "",
+    "subscription_status": "free",
+    "is_pro": false,
+    "cancel_at_period_end": false,
+    "current_period_end": null,
+    "limits": {
+        "humanizer": 1100,
+        "assignment": 2,
+        "mcq": 20,
+        "summarizer": 200
+    },
+    "usage": {
+        "humanizer": 0,
+        "assignment": 0,
+        "mcq": 0,
+        "summarizer": 0
+    },
+    "subscription": {
+        "status": "free",
+        "is_pro": false,
+        "cancel_at_period_end": false,
+        "current_period_end": null
+    },
+    "created_at": "2026-05-28T18:35:52.171919Z"
+} {
+    "id": 30,
+    "humanized_text": "# Retrieve user limits and usage\nprofile = request.user  # or request.user.profile if using a profile model\n\nlimits = getattr(profile, \"limits\", {})\nusage = getattr(profile, \"usage\", {})\n\nhumanizer_limit = limits.get(\"humanizer\", 0)\nhumanizer_used = usage.get(\"humanizer\", 0)\n\nremaining_words = max(humanizer_limit - humanizer_used, 0)",
+    "scores": {
+        "naturalness": 32,
+        "clarity": 29,
+        "style_match": 34,
+        "total": 95
+    },
+    "breakdown": {
+        "strengths": [
+            "Code structure and logic remain completely intact",
+            "Variable names are clear and descriptive",
+            "Comment improvements enhance readability without changing meaning",
+            "Natural progression from data retrieval to calculation"
+        ],
+        "weaknesses": [
+            "Minimal changes possible in technical code—already well-written",
+            "Comment rephrasing is subtle but appropriate for standard style"
+        ],
+        "feedback": "The original code is already well-structured and clear. Changes focused on minor comment refinement ('get user limits + usage' → 'Retrieve user limits and usage' and 'if you use profile model' → 'if using a profile model') to match standard English conventions. The code itself requires no modification as it follows best practices."
+    },
+    "processing_time": 4.367607593536377,
+    "usage": {
+        "limit": 0,
+        "used": 0,
+        "remaining": 0
+    }
+} {
+    "id": 31,
+    "humanized_text": "# Retrieve user limits and usage\nprofile = request.user  # or request.user.profile if using a profile model\n\nlimits = getattr(profile, \"limits\", {})\nusage = getattr(profile, \"usage\", {})\n\nhumanizer_limit = limits.get(\"humanizer\", 0)\nhumanizer_used = usage.get(\"humanizer\", 0)\n\nremaining_words = max(humanizer_limit - humanizer_used, 0)",
+    "scores": {
+        "naturalness": 32,
+        "clarity": 28,
+        "style_match": 33,
+        "total": 93
+    },
+    "breakdown": {
+        "strengths": [
+            "Code logic and structure remain completely intact",
+            "Comment improved for clarity ('Retrieve' is more direct than 'get')",
+            "Variable naming and syntax preserved exactly",
+            "Natural phrasing in comment without altering technical meaning"
+        ],
+        "weaknesses": [
+            "Minimal text to humanize (mostly code with brief comments)",
+            "Comment changes are subtle; original was already clear"
+        ],
+        "feedback": "The original text was already well-written technical code. The humanization focused on the comment, changing 'get user limits + usage' to 'Retrieve user limits and usage' for slightly more natural English. Code remains unchanged as it should."
+    },
+    "processing_time": 3.7780511379241943,
+    "usage": {
+        "limit": 1100,
+        "used": 1188,
+        "remaining": 0
+    }
+} {
+    "id": 32,
+    "humanized_text": "# Retrieve user limits and usage data\nprofile = request.user  # or request.user.profile if using a profile model\n\nlimits = getattr(profile, \"limits\", {})\nusage = getattr(profile, \"usage\", {})\n\nhumanizer_limit = limits.get(\"humanizer\", 0)\nhumanizer_used = usage.get(\"humanizer\", 0)\n\nremaining_words = max(humanizer_limit - humanizer_used, 0)",
+    "scores": {
+        "naturalness": 32,
+        "clarity": 29,
+        "style_match": 33,
+        "total": 94
+    },
+    "breakdown": {
+        "strengths": [
+            "Code comments improved for clarity and professionalism",
+            "Variable names and logic remain unchanged and accurate",
+            "Maintained proper Python syntax and formatting",
+            "Comment phrasing is more natural and descriptive"
+        ],
+        "weaknesses": [
+            "Minimal changes needed as original was already clear",
+            "Code-focused text has inherent constraints on humanization"
+        ],
+        "feedback": "The original text was well-written technical code with minimal improvements needed. Enhanced the comment from 'get user limits + usage' to 'Retrieve user limits and usage data' for better readability. Changed 'if you use profile model' to 'if using a profile model' for consistency. The code structure and logic remain identical and correct."
+    },
+    "processing_time": 3.74263334274292,
+    "usage": {
+        "plan": "premium",
+        "limit": 75000,
+        "used": 1229,
+        "remaining": 73771
+    }
+}
