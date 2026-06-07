@@ -27,19 +27,23 @@ export default function LoginPage() {
   const [rememberMe, setRememberMe] = useState(false);
   const userData = useObservable(null)
   const googleLogin = () => {
-  const clientId = process.env.NEXT_PUBLIC_GOOGLE_CLIENT_ID
-  const redirectUri = "https://7cfb-202-66-180-220.ngrok-free.app/api/accounts/google/callback/"
+  const clientId = process.env.NEXT_PUBLIC_GOOGLE_CLIENT_ID;
 
-  const scope = "openid email profile"
+const redirectUri =
+  "https://7cfb-202-66-180-220.ngrok-free.app/api/accounts/google/callback/";
 
-  const url =
-    `https://accounts.google.com/o/oauth2/v2/auth` +
-    `?client_id=${clientId}` +
-    `&redirect_uri=${redirectUri}` +
-    `&response_type=code` +
-    `&scope=${scope}`
+const scope = "openid email profile";
 
-  window.location.href = url
+const url =
+  `https://accounts.google.com/o/oauth2/v2/auth` +
+  `?client_id=${clientId}` +
+  `&redirect_uri=${encodeURIComponent(redirectUri)}` +
+  `&response_type=code` +
+  `&scope=${encodeURIComponent(scope)}` +
+  `&access_type=offline` +
+  `&prompt=consent`;
+
+window.location.href = url;
 }
   const handleLogin = async (e: React.FormEvent) => {
     e.preventDefault();
