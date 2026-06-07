@@ -1,5 +1,5 @@
 "use client";
-
+import Image from "next/image";
 import { usePathname } from "next/navigation";
 import Link from "next/link";
 import { motion, AnimatePresence } from "framer-motion";
@@ -244,10 +244,16 @@ export default function Sidebar({ isOpen, onClose }: SidebarProps) {
         >
           <Link href="/" className="flex items-center gap-2 group">
             <div className="w-9 h-9 rounded-lg bg-gradient-to-br from-purple-500 to-pink-500 flex items-center justify-center group-hover:scale-110 transition-transform">
-              <Sparkles className="w-5 h-5 text-white" />
+                  <Image
+                    src="/logo.svg"
+                    alt="Ravionix Logo"
+                    width={36}
+                    height={36}
+                    priority
+                  />
             </div>
             <span className="text-lg font-bold group-hover:text-purple-300 transition">
-              StudyAI
+              Ravionix
             </span>
           </Link>
           <button
