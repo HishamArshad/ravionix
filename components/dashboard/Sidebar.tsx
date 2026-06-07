@@ -242,7 +242,21 @@ export default function Sidebar({ isOpen, onClose }: SidebarProps) {
           animate={{ opacity: 1 }}
           className="flex items-center justify-between p-5 border-b border-white/5"
         >
-          <Link href="/" className="flex items-center gap-2 group flex-shrink-0">
+          {/* <Link href="/" className="flex items-center gap-2 group">
+            <div className="w-9 h-9 rounded-lg bg-gradient-to-br from-purple-500 to-pink-500 flex items-center justify-center group-hover:scale-110 transition-transform">
+                  <Image
+                    src="/logo.svg" 
+                    alt="Ravionix Logo"
+                    width={36}
+                    height={36}
+                    priority
+                  />
+            </div>
+            <span className="text-lg font-bold group-hover:text-purple-300 transition">
+              Ravionix
+            </span>
+          </Link> */}
+                    <Link href="/" className="flex items-center gap-2 group flex-shrink-0">
             <div className="w-9 h-9 flex items-center justify-center group-hover:scale-110 transition-transform">
               <Image
                 src="/logo.svg"
@@ -253,11 +267,12 @@ export default function Sidebar({ isOpen, onClose }: SidebarProps) {
               />
             </div>
 
-            <span className="text-xl font-bold hidden sm:inline">
+           <span className="text-lg font-bold group-hover:text-purple-300 transition">
               Ravionix
             </span>
           </Link>
 
+          
           <button
             onClick={onClose}
             className="lg:hidden text-gray-400 hover:text-white hover:bg-white/10 p-1 rounded-lg transition"
