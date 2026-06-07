@@ -1,4 +1,5 @@
 "use client";
+import Image from "next/image"; 
 
 import { useState, useEffect, useRef } from "react";
 import {
@@ -416,13 +417,22 @@ useEffect(() => {
       <div className="max-w-7xl mx-auto px-6 py-4">
         <div className="flex items-center justify-between">
           {/* Logo */}
-          <Link href="/" className="flex items-center gap-2 group flex-shrink-0">
-            <div className="w-9 h-9 rounded-lg bg-gradient-to-br from-purple-500 to-pink-500 flex items-center justify-center group-hover:scale-110 transition-transform">
-              <Sparkles className="w-5 h-5 text-white" />
-            </div>
-            <span className="text-xl font-bold hidden sm:inline">StudyAI</span>
-          </Link>
 
+<Link href="/" className="flex items-center gap-2 group flex-shrink-0">
+  <div className="w-9 h-9 flex items-center justify-center group-hover:scale-110 transition-transform">
+    <Image
+      src="/logo.svg"
+      alt="Ravionix Logo"
+      width={36}
+      height={36}
+      priority
+    />
+  </div>
+
+  <span className="text-xl font-bold hidden sm:inline">
+    Ravionix
+  </span>
+</Link>
           {/* Desktop Menu */}
           <div className="hidden lg:flex items-center gap-1">
             {/* Tools */}
