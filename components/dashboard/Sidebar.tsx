@@ -207,13 +207,28 @@ export default function Sidebar({ isOpen, onClose }: SidebarProps) {
   const pathname = usePathname();
    const [user, setUser] = useState(null);
 const [loading, setLoading] = useState(true);
-const creditsUsed = user?.usage?.humanizer ?? 0;
-const creditsTotal = user?.limits?.humanizer ?? 0;
+const usage = user?.usage ?? {};
+const limits = user?.limits ?? {};
+
+// Sum all used credits
+const creditsUsed =
+  (usage.humanizer ?? 0) +
+  (usage.assignment ?? 0) +
+  (usage.mcq ?? 0) +
+  (usage.summarizer ?? 0);
+
+// Sum all allowed credits
+const creditsTotal =
+  (limits.humanizer ?? 0) +
+  (limits.assignment ?? 0) +
+  (limits.mcq ?? 0) +
+  (limits.summarizer ?? 0);
+
+// Plan info (optional if needed later)
 const userPlan = user?.subscription?.status ?? "free";
 const isPro = user?.is_pro ?? false;
-  // Calculate daily usage percentage
-  // const creditsUsed = 350;
-  // const creditsTotal = 500;
+
+// Percentage calculation
 const creditPercentage =
   creditsTotal > 0 ? (creditsUsed / creditsTotal) * 100 : 0;
 
