@@ -19,7 +19,7 @@ import {
 } from "lucide-react";
 import MCQResult from "./MCQResult";
 import { authService } from "../api/authService";
-import { currentMCQRetake, mcqHistory } from "../store/auth";
+import { authState, currentMCQRetake, mcqHistory } from "../store/auth";
 import { observer } from "@legendapp/state/react";
 import { toast } from "sonner";
 // ── Types ──────────────────────────────────────────────
@@ -269,7 +269,8 @@ const res = await authService.mcqGen({
 
 setResult(res.mcq);
 setHistoryId(res.history_id);
-
+const user = await authService.getMe()
+authState.user.set(user)
 mcqHistory.response.set((prev: any[] = []) => [
   {
     id: res.history_id,

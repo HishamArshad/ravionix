@@ -15,7 +15,7 @@ import {
 } from "lucide-react";
 import AssignmentOutput from "./AssignmentOutput";
 import { authService } from "../api/authService";
-import { assignmentHistory } from "../store/auth";
+import { assignmentHistory, authState } from "../store/auth";
 import { useRouter } from "next/navigation";
 import { toast } from "sonner";
 
@@ -230,8 +230,9 @@ const handleSendToHumanizer = (text: string) => {
 
     try {
       const assignment = await authService.assignmentGen(form)
-         
-      console.log(assignment)
+      const user = await authService.getMe()
+      authState.user.set(user)
+      // console.log(assignment)
       // ── API CALL PLACEHOLDER ──────────────────────────────────
       // const response = await fetch("http://localhost:8000/api/assignment/generate/", {
       //   method: "POST",

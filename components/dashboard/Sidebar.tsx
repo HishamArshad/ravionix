@@ -200,13 +200,16 @@ return (
     )}
   </motion.li>
 ); 
-}
-import { useEffect, useState } from "react";
+} 
+
+import { authState } from "../store/auth";
+import { observer } from "@legendapp/state/react";
 // ── Main Sidebar Component ────────────────────────────
-export default function Sidebar({ isOpen, onClose }: SidebarProps) {
+export default observer(function Sidebar({ isOpen, onClose }: SidebarProps) {
   const pathname = usePathname();
-   const [user, setUser] = useState(null);
-const [loading, setLoading] = useState(true);
+ const user = authState.user.get();
+//    const [user, setUser] = useState(null);
+// const [loading, setLoading] = useState(true);
 const usage = user?.usage ?? {};
 const limits = user?.limits ?? {};
 
@@ -235,20 +238,20 @@ const creditPercentage =
 const isNearLimit = creditPercentage > 75;
  
 
-useEffect(() => {
-  const fetchMe = async () => {
-    try {
-      const res = await authService.getMe();
-      setUser(res);
-    } catch (err) {
-      console.error("Failed to fetch user:", err);
-    } finally {
-      setLoading(false);
-    }
-  };
+// useEffect(() => {
+//   const fetchMe = async () => {
+//     try {
+//       const res = await authService.getMe();
+//       setUser(res);
+//     } catch (err) {
+//       console.error("Failed to fetch user:", err);
+//     } finally {
+//       setLoading(false);
+//     }
+//   };
 
-  fetchMe();
-}, []);
+//   fetchMe();
+// }, []);
 
 
 
@@ -500,4 +503,4 @@ useEffect(() => {
       </aside>
     </>
   );
-}
+})

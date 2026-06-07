@@ -23,7 +23,7 @@ import {
 } from "lucide-react";
 import SummarizerResult from "./SummarizerResult";
 import { authService } from "../api/authService";
-import { summarizerHistory } from "../store/auth";
+import { authState, summarizerHistory } from "../store/auth";
 import { toast } from "sonner";
 // ── Types ──────────────────────────────────────────────
 type SummaryLength = "short" | "medium" | "detailed";
@@ -194,8 +194,8 @@ export default function SummarizerInput() {
   ...prev
 ]);
 
-console.log(response, "Debug")
-console.log(response.reading_time_saved, "DebugReading TIme")
+// console.log(response, "Debug")
+// console.log(response.reading_time_saved, "DebugReading TIme")
   //  console.log(response);
 setResult({
   id: response.id,
@@ -213,6 +213,8 @@ setResult({
   compressionRatio: response.compression_ratio ?? 0,
   readingTimeSaved: response.reading_time_saved ?? 0,
 });
+const user = await authService.getMe()
+authState.user.set(user)
       // ── API CALL PLACEHOLDER ────────────────────────
       // const response = await fetch("http://localhost:8000/api/summarizer/summarize/", {
       //   method: "POST",
